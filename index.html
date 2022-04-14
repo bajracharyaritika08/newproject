@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SEARCH FILTER</title>
+</head>
+
+<body>
+    <h2>Search Function Using Filter</h2>
+    <input type="text" name="search" id="search" placeholder="Seach by names..." onkeyup="searchFun()" style="width: 100%; height: 30px;">
+    <table border="1px" id="myTable" style="width: 100%;">
+        <thead>
+            <tr class="header">
+                <th>SN</th>
+                <th>Image</th>
+                <th>Full Name</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>Faculty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><img src="ritikaimage1.jpg" alt="ritika with mic" style="height: 100px;"></td>
+                <td>Ritika Bajracharya</td>
+                <td>Bhinchhebahal</td>
+                <td>Female</td>
+                <td>BCA</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><img src="ritikaimage1.jpg" alt="ritika with mic" style="height: 100px;"></td>
+                <td>Suprim Shakya</td>
+                <td>Chakupat</td>
+                <td>Male</td>
+                <td>BIM</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><img src="ritikaimage1.jpg" alt="ritika with mic" style="height: 100px;"></td>
+                <td>Rijyak Raj Bajracharya</td>
+                <td>Bhinchhebahal</td>
+                <td>Male</td>
+                <td>BIM</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><img src="ritikaimage1.jpg" alt="ritika with mic" style="height: 100px;"></td>
+                <td>Victoria Shakya</td>
+                <td>Ikcheen</td>
+                <td>Female</td>
+                <td>CSIT</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const searchInput = document.getElementById("search");
+        const rows = document.querySelectorAll("tbody tr");
+        console.log(rows);
+        searchInput.addEventListener("keyup", function(event) {
+            const q = event.target.value.toLowerCase();
+            rows.forEach((row) => {
+                row.querySelector("td").textContent.toLowerCase().startsWith(q) ?
+                    (row.style.display = "table-row") :
+                    (row.style.display = "none");
+            });
+        });
+    </script>
+</body>
+
+</html>
